@@ -1,0 +1,19 @@
+# packages/sensors.yaml
+# Define all your sensors here
+
+sensor:
+  - platform: example_sensor  # Replace with your actual sensor platform (e.g., dht, bme280, etc.)
+    id: my_temperature_sensor
+    name: "Living Room Temperature"
+    unit_of_measurement: "°C"
+    # Add any other sensor-specific configuration options here.
+    # Example for a DHT sensor:
+    # pin: GPIO23
+
+binary_sensor:
+    # Example binary sensor
+  - platform: example_binary_sensor
+    id: voice_command_active
+    name: "Voice Command Active"
+    # This is a placeholder.  You'd likely use a template binary sensor
+    # to indicate when a voice command is being processed.
