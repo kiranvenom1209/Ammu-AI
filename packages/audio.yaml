@@ -1,0 +1,29 @@
+# packages/audio.yaml
+
+i2s_audio:
+  # This section configures the I2S audio interface.  You'll need
+  # to adjust the pin numbers to match your specific hardware.
+  # Consult the ESPHome documentation for your audio board.
+  id: i2s_audio_out
+  # Example for an I2S DAC:
+  bclk_pin: GPIO26
+  data_out_pin: GPIO22 # data pin
+  ws_pin: GPIO25
+  mode: mono
+
+microphone:
+  - platform: i2s_audio
+    id: ${microphone_id}
+    i2s_audio_id: i2s_audio_out
+    adc_type: external #adc type
+    pdm: false # pdm to false
+    # Example pins for an INMP441 microphone:
+    data_pin: GPIO32
+    clock_pin: GPIO33
+
+speaker:
+  - platform: i2s_audio
+    id: ${speaker_id}
+    i2s_audio_id: i2s_audio_out
+    dac_type: internal
+    mode: mono
