@@ -1,0 +1,44 @@
+# packages/voice_assistant.yaml
+
+voice_assistant:
+  id: ${voice_assistant_id}
+  microphone: ${microphone_id}
+  speaker: ${speaker_id}
+  vad_threshold: 5             # Voice Activity Detection. Higher = less sensitive.
+  noise_suppression_level: 2    # Adjust as needed for your environment.
+  auto_gain: 16dBFS            # Adjust the auto gain.
+  volume_multiplier: 2.0        # Adjust the volume.
+
+  on_wake_word_detected:
+    - logger.log: "Wake word detected!"
+    - homeassistant.service: # Play custom wake word response.
+        service: media_player.play_media
+        data:
+          entity_id: ${speaker_entity_id}
+          media_content_id: !secret wake_word_sound_url  # URL from secrets.yaml
+          media_content_type: "music"
+    - delay: 5s # Wait for the response to finish playing
+
+  on_voice_command_start:
+    - logger.log: "Voice command started!"
+    - binary_sensor.turn_on: voice_command_active
+      # Add logic start tts and stt
+
+  on_voice_command_end:
+    - logger.log: "Voice command ended!"
+    - binary_sensor.turn_off: voice_command_active
+      # add logic to stop media
+
+  on_error:
+    - logger.log:
+        format: "Voice assistant error: %s"
+        args: [ 'error' ]
+    # Add actions to handle errors (e.g., play an error sound)
+
+  on_tts_start:
+      - logger.log: "tts start"
+        # Add logic to perform on tts start
+
+  on_tts_end:
+      - logger.log: "tts end"
+        # Add logic to perform on tts end
