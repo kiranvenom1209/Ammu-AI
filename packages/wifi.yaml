@@ -1,0 +1,17 @@
+# packages/wifi.yaml
+
+wifi:
+  # Use secrets.yaml to store your Wi-Fi credentials securely!
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Optional: Set a static IP address (recommended for stability).
+  # If using DHCP, comment out the manual_ip section.
+  manual_ip:
+    static_ip: 192.168.1.150  # Replace with a suitable IP address on your network.
+    gateway: 192.168.1.1     # Replace with your router's IP address.
+    subnet: 255.255.255.0   # Your network's subnet mask (usually 255.255.255.0).
+
+  # Enable OTA updates.
+  ota:
+    password: !secret ota_password  # Set a strong OTA password in secrets.yaml!
