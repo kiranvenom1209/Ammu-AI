@@ -81,7 +81,7 @@ Welcome to **Ammu AI** – the first fully intelligent Malayalam AI assistant de
 2.  **Flash via ESPHome:** Ensure your Wi-Fi credentials are set in `secrets.yaml`, then flash using your preferred method:
 
     ```bash
-    esphome run your_configuration.yaml
+    esphome run ammu.yaml
     ```
 
     **OTA Updates:**
