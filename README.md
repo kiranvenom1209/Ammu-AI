@@ -1,157 +1,134 @@
 # Ammu AI - The Ultimate Intelligent Malayalam Assistant
 
-Welcome to **Ammu AI** – the first, fully intelligent Malayalam AI assistant built to transform your smart home experience. Imagine a personal assistant that speaks your language with natural grace, understands your cultural nuances, and seamlessly integrates with your Home Assistant. Inspired by legendary AIs like **Jarvis**, **Friday**, and **Edith**, and the iconic character **Raghavan** from *Gaganachari*, Ammu AI is here to revolutionize your daily interactions.
+Welcome to **Ammu AI** – the first fully intelligent Malayalam AI assistant designed to revolutionize your smart home experience. Imagine a personal assistant that speaks your language with natural grace, understands cultural nuances, and seamlessly integrates with Home Assistant. Inspired by legendary assistants like **Jarvis**, **Friday**, and **Edith**, and paying homage to the iconic character **Raghavan** from *Gaganachari*, Ammu AI brings cutting‑edge technology and local flavor together in one powerful package.
 
 ---
 
-## 🌟 Why Ammu AI?
+## Why Ammu AI?
 
-- **Unmatched Malayalam Fluency:** Ammu AI is designed to converse in fluent, grammatically perfect Malayalam, making every interaction feel natural and engaging.
-- **Smart Home Command Center:** With deep integration into Home Assistant, Ammu AI controls your smart devices, automates routines, and even secures your home—all while keeping your data local and secure.
-- **Cost-Effective Intelligence:** Enjoy the power of advanced AI at a minimal monthly cost (often under €5), thanks to optimized API usage and efficient design.
-- **Cultural Relevance & Customization:** Tailor Ammu’s personality using our provided base prompt and function files, ensuring that she not only understands your language but also resonates with your cultural identity.
+- **Unmatched Malayalam Fluency:**  
+  Built from the ground up to understand and converse in impeccable Malayalam, Ammu AI provides an interaction that feels truly natural and culturally rich.
+
+- **Smart Home Command Center:**  
+  Seamlessly integrated with Home Assistant, Ammu AI controls your smart devices, automates routines, and enhances home security—all while keeping your data private and local.
+
+- **Cost‑Effective Intelligence:**  
+  Enjoy advanced AI capabilities at a very low cost, with efficient API usage ensuring that the monthly expenses remain minimal.
+
+- **Cultural Relevance & Personalization:**  
+  With a custom base prompt and dedicated function files, you can tailor Ammu AI’s personality to be as friendly, witty, and culturally attuned as you want.
+
+- **Custom Wake Word Response:**  
+  Instead of a generic chime, Ammu AI greets you with the spirited Malayalam phrase **"Parayu Chetta"** (roughly meaning "Hello buddy, how can I help you?"). This distinctive greeting is delivered via a custom FLAC sound file, making every activation a unique experience.
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
 ### 🗣️ Natural Malayalam Speech Processing
-- **Fluent Communication:** Leverages Home Assistant Cloud STT (ml-IN) for accurate speech-to-text conversion.
-- **Rich Vocal Experience:** Replies using TTS (ml-IN) SobhanaNeural, offering a natural and warm voice with perfect intonation.
+- **Fluent Communication:**  
+  Leverages advanced speech-to-text (STT) and text-to-speech (TTS) systems (powered by Home Assistant Cloud STT and SobhanaNeural TTS) to ensure natural, engaging interactions.
+- **Cultural Authenticity:**  
+  Designed to honor Malayalam linguistic nuances, providing responses that resonate with local culture.
 
-### 🎤 Custom Wake Word - "Ammu"
-- **Efficient Activation:** Uses a custom TensorFlow Lite (TFLite) model for wake word detection, integrated via OpenWakeWord.
-- **Easy Setup:** Simply download the [Ammu Wake Word Model](https://github.com/kiranvenom1209/ammuai/tree/main/custom_wake_word/ammu.tflite) and enjoy hands-free interaction.
-
+### 🎤 Custom Wake Word & Audio Experience
+- **Custom Activation Sound:**  
+  When the wake word is detected, Ammu AI plays a custom sound – **"Parayu Chetta"** – replacing a simple chime with a friendly call-to-action.
+- **Optimized Audio Format:**  
+  The custom sound is stored as a FLAC file (see [custom_sounds/parayuchetta.flac](https://github.com/kiranvenom1209/ammuai/blob/main/custom_sounds/parayuchetta.flac)) to ensure high-quality, lossless playback with minimal overhead.
+  
 ### 🤖 Advanced AI-Powered Conversations
-- **Extended OpenAI Conversation:** Powered by GPT-4o with configurations fine-tuned to deliver intelligent, mature, and context-aware responses.
-- **Custom Personality:** A tailored base prompt sets Ammu’s tone as a friendly 28-year-old assistant, ensuring consistency and personality in every exchange.
+- **Extended OpenAI Conversations:**  
+  Equipped with a GPT‑4o–based conversational pipeline for intelligent, context-aware, and mature responses.
+- **Custom Personality:**  
+  A specially tailored base prompt sets Ammu’s personality as a friendly and knowledgeable 28‑year‑old assistant.
 
-### 📸 LLM Vision - Intelligent Image Analysis
-- **Smart Vision Capabilities:** Analyze images for enhanced home security and automation using OpenAI’s Vision API integrated into Home Assistant LLM Vision.
-- **Real-Time Analysis:** Recognize objects, people, and text from live CCTV feeds to keep your home safe and smart.
+### 📸 LLM Vision – Intelligent Image Analysis
+- **Smart Vision Capabilities:**  
+  Integrated with OpenAI’s Vision API to analyze images from your CCTV feeds, recognize objects, and even read text—all to enhance your home security and automation.
 
 ### 🔒 Privacy & Local Processing
-- **Data Security First:** All processes run locally where possible, minimizing unnecessary cloud dependencies.
-- **Custom Firmware Integration:** Optimized firmware for ESP devices ensures maximum performance and security.
+- **Data Security First:**  
+  All processing is done locally where possible, ensuring minimal dependency on cloud services and maximum privacy.
+- **Seamless Integration:**  
+  With secure API and OTA support, Ammu AI is designed to integrate effortlessly with Home Assistant.
 
 ---
 
-## 🛠️ Installation & Setup Guide
+## Installation & Setup Guide
 
-### Step 1: Prepare Your Home Assistant
-1. **Install Home Assistant OS:** Use a Raspberry Pi, Intel NUC, or your preferred Home Server.
-2. **Follow the Official Guide:**  
-   🔗 [Home Assistant Installation Guide](https://www.home-assistant.io/installation/)
-3. **Keep It Updated:** Ensure your installation is running the latest version.
+### 1. Prepare Your Home Assistant
+- **Install Home Assistant OS:**  
+  Follow the official guide on [Home Assistant Installation](https://www.home-assistant.io/installation/).
+- **Update to the Latest Version:**  
+  Ensure your installation is running the latest version to support all integrations.
 
-### Step 2: Configure Home Assistant Cloud & Pipelines
-1. **Subscribe to Home Assistant Cloud:**  
-   🔗 [Home Assistant Cloud (Nabu Casa)](https://www.nabucasa.com/)
-2. **Set Up a New Pipeline:**  
-   - Go to **Settings → Voice Assistants → Pipelines**.
-   - Create a new pipeline named **Ammu**.
-   - Set the language to **Malayalam (ml-IN)**.
-   - Select **Home Assistant Cloud STT** and **TTS (SobhanaNeural)**.
+### 2. Configure Home Assistant Cloud & Pipelines
+- **Subscribe to Home Assistant Cloud (Nabu Casa):**  
+  This provides enhanced STT/TTS services.
+- **Set Up the Ammu Pipeline:**
+  - Navigate to **Settings → Voice Assistants → Pipelines**.
+  - Create a new pipeline named **Ammu**.
+  - Set the language to **Malayalam (ml-IN)**.
+  - Choose **Home Assistant Cloud STT** and **TTS (SobhanaNeural)**.
 
-### Step 3: Install Extended OpenAI Conversation
-1. **Open Home Assistant:**
-   - Navigate to **Settings → Devices & Services → Add Integration**.
-   - Search for **Extended OpenAI Conversation**.
-2. **API Configuration:**
-   - Enter your OpenAI API Key (get it from [OpenAI's Platform](https://platform.openai.com/signup/)).
-   - Use these settings:
-     - **Model:** `gpt-4o-2024-11-20`
-     - **Max Tokens:** `2400`
-     - **Top P:** `0.9`
-     - **Temperature:** `0.7`
-3. **Finalize:** Save and restart Home Assistant.
+### 3. Extended OpenAI Conversation & LLM Vision
+- **Extended OpenAI Conversation:**
+  - Install via **Settings → Devices & Services → Add Integration** and configure with your OpenAI API key.
+  - Recommended settings:  
+    **Model:** `gpt-4o-2024-11-20`  
+    **Max Tokens:** `2400`  
+    **Top P:** `0.9`  
+    **Temperature:** `0.7`
+- **LLM Vision Integration:**
+  - Add the integration from **Settings → Devices & Services** using OpenAI as the provider.
 
-### Step 4: Set Up LLM Vision Integration
-1. **Add LLM Vision Integration:**  
-   - Navigate to **Settings → Devices & Services** and search for **LLM Vision**.
-2. **Configuration Details:**
-   - **Provider:** OpenAI
-   - **Max Tokens:** `100`
-   - **Temperature:** `0.3`
-   - **Model:** `gpt-4o`
+### 4. Set Up OpenWakeWord & Custom Wake Word Model
+- **Install OpenWakeWord:**  
+  Follow the instructions on the [OpenWakeWord GitHub page](https://github.com/dscripka/openWakeWord/tree/main).
+- **Download the Ammu Wake Word Model:**  
+  Retrieve it from [custom_wake_word/ammu.tflite](https://github.com/kiranvenom1209/ammuai/tree/main/custom_wake_word/ammu.tflite) and place it in your designated Home Assistant folder.
 
-### Step 5: Implement OpenWakeWord & Custom Wake Word
-1. **Install OpenWakeWord:**  
-   - Follow the guide: 🔗 [OpenWakeWord Installation](https://github.com/dscripka/openWakeWord/tree/main)
-2. **Download & Install Wake Word Model:**  
-   - Get the [Ammu Wake Word Model](https://github.com/kiranvenom1209/ammuai/tree/main/custom_wake_word/ammu.tflite) and place it in your Home Assistant Local Directory via Samba Share.
+### 5. Flash the Custom Firmware
+- **Download the Pre‑built Binary:**  
+  Get `ammuaiencrypted.bin` from the [flashable_code folder](https://github.com/kiranvenom1209/ammuai/blob/main/flashable_code/ammuaiencrypted.bin).
+- **Flash via ESPHome:**  
+  Ensure your Wi‑Fi credentials are set in `secrets.yaml`, then flash using your preferred method:
+  ```bash
+  esphome run your_configuration.yaml
+OTA Updates:
+Once connected, you can update the firmware over the air using the ESPHome dashboard.
+6. Activate Ammu AI
+Select the Ammu Pipeline:
+In Home Assistant, choose the Ammu pipeline from Settings → Voice Assistants → Pipelines.
+Speak to Activate:
+Simply say "Ammu" to trigger the wake word and start interacting with your assistant.
+Customization & Future Scope
+Custom Audio Files & Prompts
+Custom Wake Word Sound:
+Our custom sound file, parayuchetta.flac, replaces the standard chime. It plays the Malayalam phrase “Parayu Chetta” meaning “Hello buddy, how can I help you?”
+To replace it, simply update the URL in your YAML file under the media files section.
+Editable Base Prompt & Functions:
+Customize Ammu AI’s personality by modifying the ammu_baseprompt.txt and ammu_functions.txt files. These files define how Ammu responds, controls devices, and interacts with you in Malayalam.
+Technical & Future Enhancements
+Local LLM Capabilities:
+Research is underway to bring more processing directly onto the device, reducing cloud dependency further.
+Enhanced Vision Integration:
+Future versions may include advanced image recognition for security and smart home automation.
+User-Customizable Voice Profiles:
+Allow users to record and upload custom voice prompts for a more personalized experience.
+Expanded Language Support:
+While Ammu AI is optimized for Malayalam, additional language packs or dialect support could be integrated in the future.
+Real-Time Adaptive Responses:
+Incorporate context-aware modifications to responses based on ambient conditions, time of day, or user behavior.
+Credits
+Kiran Karthikeyan Achari:
+The primary creator and visionary behind Ammu AI. Kiran’s dedication to blending technology with cultural authenticity makes Ammu AI a standout project.
 
-### Step 6: Flash Custom Firmware on Your ESP Device
-1. **Download Firmware:**  
-   - 🔗 [Ammu AI Firmware](https://github.com/kiranvenom1209/ammuai/blob/main/flashable_code/ammuaiencrypted.bin)
-2. **Flash Using ESPHome:**
-   - Ensure WiFi credentials are pre-configured in `secrets.yaml`.
-   - Flash the firmware and restart your device.
+Danny Sneham:
+A key collaborator whose technical insights and contributions have been integral to shaping Ammu AI’s advanced capabilities.
 
-### Step 7: Activate Ammu AI
-1. **Select the Ammu Pipeline:**  
-   - Go to **Settings → Voice Assistants → Pipelines** and choose the **Ammu pipeline**.
-2. **Final Setup:**  
-   - Save settings and restart Home Assistant.
-   - Simply say **"Ammu"** to activate your assistant.
+License & Support
+This project is released under the MIT License. For support, contributions, or to report issues, please visit our GitHub repository and open an issue or submit a pull request.
 
----
-
-## 📝 Customization: Using Ammu Base Prompt & Ammu Functions
-
-Ammu AI is designed for flexibility and continuous enhancement. Two critical files enable you to customize Ammu’s behavior and extend her functionality:
-
-### **ammu_baseprompt.txt**
-- **Purpose:** Contains the core conversational prompt defining Ammu’s personality, tone, and style.
-- **How to Use:**
-  - Open the file located [here](https://github.com/kiranvenom1209/ammuai/blob/main/ammu_baseprompt.txt).
-  - Customize the base prompt to adjust Ammu’s responses—be it more formal, friendly, or culturally nuanced.
-  - Deploy the updated prompt in your Home Assistant configuration for real-time changes in Ammu’s interaction style.
-
-### **ammu_functions.txt**
-- **Purpose:** Hosts custom functions and integrations that extend Ammu AI’s capabilities beyond basic conversation.
-- **How to Use:**
-  - Access the file from [this link](https://github.com/kiranvenom1209/ammuai/blob/main/ammu_functions.txt).
-  - Review the provided functions to understand how Ammu handles tasks—from smart home control to dynamic responses.
-  - Modify or add new functions to tailor Ammu’s behavior to your specific needs, ensuring she remains the smartest assistant in the Malayalam market.
-
----
-
-## 💎 What Sets Ammu AI Apart?
-
-- **Exclusive Malayalam Expertise:** Ammu AI is finely tuned to understand and converse in Malayalam, making her the ideal companion for Malayalam speakers.
-- **Seamless Integration:** Optimized specifically for Home Assistant, Ammu AI effortlessly bridges the gap between modern technology and traditional homes.
-- **Innovative and Adaptable:** With an ever-growing suite of custom functions and prompt configurations, Ammu AI continuously evolves to meet the future needs of smart home enthusiasts.
-- **User-First Design:** Every aspect—from privacy to performance—is engineered to deliver an unparalleled user experience.
-
----
-
-## 📈 Future Enhancements
-
-Ammu AI is just the beginning. Upcoming improvements include:
-
-- **Local LLM Support:** Bringing offline AI capabilities to run directly on your device.
-- **Enhanced Vision Capabilities:** Advanced object and person recognition for real-time security.
-- **Automated Security Alerts:** Smarter, context-aware alerts to keep your home safe.
-- **Expanded Customization Options:** More in-depth configuration files to personalize every interaction.
-
----
-
-## 📜 License & Support
-
-- **License:** Open-source under the MIT License.
-- **Repository:** [Ammu AI on GitHub](https://github.com/kiranvenom1209/ammuai/)
-- **Need Help?** Open an issue in the repository or contact us directly for troubleshooting and support.
-
----
-
-## 🙌 Credits
-
-Developed by **Kiran Karthikeyan Achari** and **Danny Sneham**, Ammu AI is the result of a shared passion for creating technology that respects language, culture, and innovation.
-
-**Experience the next level of intelligent, culturally attuned home automation with Ammu AI – the only Malayalam AI assistant you'll ever need.**
-
----
-
-Embrace the future of smart home technology with Ammu AI today!
+Experience the next level of intelligent, culturally attuned home automation with Ammu AI – where technology meets tradition. Enjoy customizing and automating your home with the ultimate intelligent Malayalam assistant!
