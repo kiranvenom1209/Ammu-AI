@@ -1,11 +1,11 @@
 # Ammu AI - Flashable Firmware
 
-Welcome to Ammu AI – a custom voice assistant firmware built with ESPHome for seamless integration with Home Assistant. This folder contains a pre‑built, encrypted binary (`ammuaiencrypted.bin`) that you can flash directly onto your ESP32-S3 device. The firmware features streaming wake word detection, dynamic LED feedback, dual‑microphone support, and many creative features to bring intelligent voice control to your smart home.
+Welcome to Ammu AI – a custom voice assistant firmware built with ESPHome for seamless integration with Home Assistant. This folder contains a pre‑built, encrypted binary (`ammu-ai.bin`) that you can flash directly onto your ESP32-S3 device. The firmware features streaming wake word detection, dynamic LED feedback, dual‑microphone support, and many creative features to bring intelligent voice control to your smart home.
 
 ## Features
 
 - **Pre‑built, Encrypted Binary:**  
-  Flash the provided `ammuaiencrypted.bin` file directly without needing to rebuild from source.
+  Flash the provided `ammu-ai.bin` file directly without needing to rebuild from source.
 - **Streaming Wake Word Detection:**  
   Continuously listens for a wake word using an optimized wake word detection pipeline.
 - **Voice Assistant Pipeline:**  
@@ -19,7 +19,7 @@ Welcome to Ammu AI – a custom voice assistant firmware built with ESPHome for 
 
 ## What's Included
 
-- **ammuaiencrypted.bin:**  
+- **ammu-ai.bin:**  
   The pre‑built, flashable binary for your ESP32‑S3 device.
 - **Source Configuration:**  
   The complete ESPHome YAML configuration used to build the firmware is provided for reference and customization.
@@ -39,7 +39,7 @@ Welcome to Ammu AI – a custom voice assistant firmware built with ESPHome for 
 ### Flashing the Firmware
 
 1. **Download the Binary:**  
-   Locate the `ammuaiencrypted.bin` file in this folder.
+   Locate the `ammu-ai.bin` file in this folder.
 
 2. **Connect Your Device:**  
    Connect your ESP32‑S3 board to your computer via USB.
@@ -47,7 +47,7 @@ Welcome to Ammu AI – a custom voice assistant firmware built with ESPHome for 
 3. **Flash the Binary:**  
    Use your preferred flashing tool (such as [esptool](https://github.com/espressif/esptool)) to flash the firmware. For example, using esptool:
    ```bash
-   esptool.py --chip esp32s3 --port /dev/ttyUSB0 write_flash 0x10000 ammuaiencrypted.bin
+   esptool.py --chip esp32s3 --port /dev/ttyUSB0 write_flash 0x10000 ammu-ai.bin
 Replace /dev/ttyUSB0 with your device’s port. Adjust the flash address if necessary.
 
 Over‑the‑Air (OTA) Updates
