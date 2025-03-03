@@ -1,0 +1,14 @@
+# packages/openai.yaml
+
+# This section is a placeholder for your OpenAI integration.
+# You would typically use the `text` component with a `conversation` agent.
+
+# Important: Store your OpenAI API key in secrets.yaml!
+text:
+  - platform: conversation
+    id: ammu_conversation
+    name: "Ammu AI Conversation"
+    prompt: !include ../ammu_baseprompt.txt # Use the base prompt file
+    api_key: !secret openai_api_key
+    model: "gpt-4o"  # Or another suitable model.
+    # Other conversation agent options...
