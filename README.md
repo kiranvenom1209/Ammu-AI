@@ -75,11 +75,11 @@ Welcome to **Ammu AI** – the first fully intelligent Malayalam AI assistant de
 ### 3. Extended OpenAI Conversation & LLM Vision
 - **Extended OpenAI Conversation:**
   - Install via **Settings → Devices & Services → Add Integration** and configure with your OpenAI API key.
-  - Recommended settings:  
-    **Model:** `gpt-4o-2024-11-20`  
-    **Max Tokens:** `2400`  
-    **Top P:** `0.9`  
-    **Temperature:** `0.7`
+  - Recommended settings:
+    - **Model:** `gpt-4o-2024-11-20`
+    - **Max Tokens:** `2400`
+    - **Top P:** `0.9`
+    - **Temperature:** `0.7`
 - **LLM Vision Integration:**
   - Add the integration from **Settings → Devices & Services** using OpenAI as the provider.
 
@@ -94,10 +94,12 @@ Welcome to **Ammu AI** – the first fully intelligent Malayalam AI assistant de
   Get `ammuaiencrypted.bin` from the [flashable_code folder](https://github.com/kiranvenom1209/ammuai/blob/main/flashable_code/ammuaiencrypted.bin).
 - **Flash via ESPHome:**  
   Ensure your Wi‑Fi credentials are set in `secrets.yaml`, then flash using your preferred method:
+  
   ```bash
   esphome run your_configuration.yaml
 OTA Updates:
-Once connected, you can update the firmware over the air using the ESPHome dashboard.
+Once your device is connected to Wi‑Fi, you can update the firmware over the air using the ESPHome dashboard.
+
 6. Activate Ammu AI
 Select the Ammu Pipeline:
 In Home Assistant, choose the Ammu pipeline from Settings → Voice Assistants → Pipelines.
@@ -106,29 +108,29 @@ Simply say "Ammu" to trigger the wake word and start interacting with your assis
 Customization & Future Scope
 Custom Audio Files & Prompts
 Custom Wake Word Sound:
-Our custom sound file, parayuchetta.flac, replaces the standard chime. It plays the Malayalam phrase “Parayu Chetta” meaning “Hello buddy, how can I help you?”
-To replace it, simply update the URL in your YAML file under the media files section.
+Our custom sound file, parayuchetta.flac, replaces the standard chime. It plays the Malayalam phrase "Parayu Chetta", meaning "Hello buddy, how can I help you?"
+To change it, update the URL in your YAML under the media files section.
 Editable Base Prompt & Functions:
-Customize Ammu AI’s personality by modifying the ammu_baseprompt.txt and ammu_functions.txt files. These files define how Ammu responds, controls devices, and interacts with you in Malayalam.
-Technical & Future Enhancements
+Customize Ammu AI’s personality by modifying ammu_baseprompt.txt and ammu_functions.txt. These files define how Ammu responds, controls devices, and interacts in Malayalam.
+Technical Roadmap & Future Enhancements
 Local LLM Capabilities:
-Research is underway to bring more processing directly onto the device, reducing cloud dependency further.
+Future versions may run more AI processing directly on the device, reducing reliance on cloud services.
 Enhanced Vision Integration:
-Future versions may include advanced image recognition for security and smart home automation.
+Future iterations could incorporate advanced image recognition for real‑time security and automation.
 User-Customizable Voice Profiles:
-Allow users to record and upload custom voice prompts for a more personalized experience.
-Expanded Language Support:
-While Ammu AI is optimized for Malayalam, additional language packs or dialect support could be integrated in the future.
-Real-Time Adaptive Responses:
-Incorporate context-aware modifications to responses based on ambient conditions, time of day, or user behavior.
+Allow users to upload and configure their own voice prompts for a more personalized experience.
+Expanded Language & Dialect Support:
+While Ammu AI is optimized for Malayalam, additional language packs or dialects could be integrated.
+Context‑Aware Interactions:
+Future enhancements may include dynamic responses based on ambient conditions, time of day, or user behavior.
 Credits
 Kiran Karthikeyan Achari:
-The primary creator and visionary behind Ammu AI. Kiran’s dedication to blending technology with cultural authenticity makes Ammu AI a standout project.
+The visionary creator of Ammu AI. His passion for merging technology with cultural authenticity is the driving force behind this project.
 
 Danny Sneham:
-A key collaborator whose technical insights and contributions have been integral to shaping Ammu AI’s advanced capabilities.
+A key collaborator whose technical expertise and creative insights have been crucial in developing Ammu AI’s advanced capabilities.
 
 License & Support
-This project is released under the MIT License. For support, contributions, or to report issues, please visit our GitHub repository and open an issue or submit a pull request.
+This project is released under the MIT License. For support, contributions, or to report issues, please visit the GitHub repository and open an issue or submit a pull request.
 
-Experience the next level of intelligent, culturally attuned home automation with Ammu AI – where technology meets tradition. Enjoy customizing and automating your home with the ultimate intelligent Malayalam assistant!
+Experience the next level of intelligent, culturally attuned home automation with Ammu AI – the ultimate Malayalam AI assistant that truly understands you. Enjoy customizing and automating your home with a touch of local flavor and cutting‑edge technology!
