@@ -1,0 +1,24 @@
+esphome:
+  name: ammu-ai
+  friendly_name: Ammu AI
+
+  # Define common substitutions to avoid repetition and make updates easier.
+  substitutions:
+    device_name: ammu_ai  # The name of this ESPHome device.
+    speaker_entity_id: media_player.esphome_speaker  # Replace with YOUR speaker entity ID.
+    wake_word_response: "Parayu Chetta" # Wake word response audio
+    microphone_id: mic # id of the microphone
+    speaker_id: speaker # id of the speaker
+    voice_assistant_id: ammu_va # id of the voice assistant
+
+# Use ESPHome packages for better organization.
+packages:
+  wifi: !include packages/wifi.yaml
+  sensors: !include packages/sensors.yaml
+  voice_assistant: !include packages/voice_assistant.yaml
+  audio: !include packages/audio.yaml
+  openai: !include packages/openai.yaml # Include OpenAI configuration.
+
+# This section remains in the main file for any configurations
+# that don't fit neatly into the packages.  Currently empty,
+# but you might add things here later.
