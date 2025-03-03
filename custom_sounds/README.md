@@ -1,9 +1,4 @@
 
-
----
-
-### For the `custom_sounds/README.md` File
-
 ```markdown
 # Custom Sounds
 
