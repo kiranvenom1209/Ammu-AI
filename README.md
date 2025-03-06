@@ -89,10 +89,36 @@ Detailed, step-by-step instructions provided for each supported local LLM.
 
 ---
 
-## 🙌 Contributors
+# Meet the Creators
 
-- **Kiran Karthikeyan Achari:** Visionary founder, passionate about blending technology with Malayalam cultural heritage.
-- **Danny Sneham:** Key technical collaborator, instrumental in developing Ammu’s advanced AI capabilities.
+## Kiran Karthikeyan Achari  
+[![Kiran's GitHub](https://img.shields.io/badge/GitHub-kiranvenom1209-181717?style=flat&logo=github)](https://github.com/kiranvenom1209)
+
+Kiran is the visionary founder behind Ammu AI—a groundbreaking project that fuses cutting-edge artificial intelligence with rich Malayalam cultural heritage. His passion for blending technology with tradition has led him to design innovative smart home solutions that are both functional and culturally resonant.
+
+**Key Strengths:**
+- **Innovative Product Design:** Crafts solutions that combine modern AI with cultural authenticity.
+- **Advanced AI & Machine Learning:** Deep expertise in natural language processing and context-aware AI.
+- **Leadership & Vision:** Drives projects from concept to reality with strategic foresight and creativity.
+- **Community & Collaboration:** Actively contributes to open-source projects and mentors emerging tech talents.
+
+---
+
+## Danny Sneham  
+[![Danny's GitHub](https://img.shields.io/badge/GitHub-FatCat--IOT-181717?style=flat&logo=github)](https://github.com/FatCat-IOT)
+
+Danny is the technical mastermind behind Ammu AI's robust integration capabilities. With a sharp focus on IoT, firmware, and hardware-software synergy, he turns complex technical challenges into elegant solutions. His commitment to precision and quality ensures that every smart home interaction is smooth and reliable.
+
+**Key Strengths:**
+- **Expertise in IoT & Firmware Development:** Translates intricate hardware demands into streamlined software experiences.
+- **Problem-Solving & Innovation:** Tackles complex issues with creative, resourceful solutions.
+- **Quality & Scalability:** Designs systems that are both robust and scalable, ensuring long-term reliability.
+- **Collaborative Spirit:** Works seamlessly with cross-functional teams to drive project success and foster innovation.
+
+---
+
+Together, Kiran and Danny combine their diverse talents and shared passion for innovation to create transformative tech solutions that set new standards in AI-assisted smart home automation. Their collaboration not only highlights their individual strengths but also demonstrates the power of teamwork in revolutionizing the way we interact with technology.
+
 
 ## 📜 License & Support
 
