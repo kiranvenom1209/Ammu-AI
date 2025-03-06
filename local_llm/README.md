@@ -1,12 +1,12 @@
 # Ammu AI – Local LLM Fine-Tuning Dataset
 
-This repository contains the fine-tuning datasets for **Ammu AI**, the ultimate intelligent Malayalam-speaking AI assistant optimized for seamless integration with Home Assistant and TTS (Text-to-Speech).
+This repository contains the fine-tuning datasets for **Ammu AI**, the ultimate intelligent Malayalam-speaking AI assistant optimized for seamless integration with Home Assistant and Text-to-Speech (TTS).
 
 ---
 
 ## 🗃️ Dataset Overview
 
-This dataset is specifically prepared in OpenAI's recommended **ChatCompletion JSONL** format, optimized for fine-tuning conversational GPT models, particularly the **GPT-4o-mini-2024-07-18** model.
+This dataset is specifically prepared in OpenAI's recommended **ChatCompletion JSONL** format, optimized for fine-tuning conversational GPT models, particularly the **GPT-4o-mini-2024-07-18** model, as well as local LLMs like DeepSeek, Ollama, and other open-source conversational models.
 
 ### 📦 Files Included
 - **`ammu_chat_finetune.jsonl.gz`** *(main training dataset, gzip compressed due to GitHub file-size limits)*
@@ -38,7 +38,7 @@ Each entry in `jsonl` follows the structure:
 
 ---
 
-## 🛠️ How to Use this Dataset for Fine-Tuning
+## 🛠️ Using the Dataset for Fine-Tuning
 
 ### Step 1: Extract JSONL file
 ```bash
@@ -54,7 +54,7 @@ openai api files.upload -f ammu_chat_finetune.jsonl -p "fine-tune"
 openai api files.upload -f ammu_chat_validation.jsonl -p "validation set for Ammu AI"
 ```
 
-### Step 3: Fine-Tuning
+### Step 3: Fine-Tuning (OpenAI GPT-4o-mini)
 
 Run your fine-tuning job with optimal settings:
 
@@ -70,6 +70,34 @@ openai api fine_tunes.create \
 ```
 
 Replace `<training-file-id>` and `<validation-file-id>` with your uploaded file IDs from OpenAI.
+
+---
+
+## 🔮 Fine-Tuning Local Models (DeepSeek, Ollama, etc.)
+
+You can utilize this dataset for fine-tuning local, open-source models such as DeepSeek, Ollama, and other conversational models. Here's how:
+
+### Using DeepSeek
+- Install DeepSeek CLI and setup your local model environment.
+- Convert JSONL to the format required by DeepSeek if necessary (usually compatible directly).
+- Start fine-tuning:
+
+```bash
+deepseek fine-tune --train-data ammu_chat_finetune.jsonl --eval-data ammu_chat_validation.jsonl --epochs 2
+```
+
+### Using Ollama
+- Install Ollama and set up the local server environment.
+- Import or convert your JSONL data according to Ollama's supported format.
+- Start fine-tuning:
+
+```bash
+ollama train -d ammu_chat_finetune.jsonl -e 2
+```
+
+### Other Local LLMs
+- Convert JSONL to the respective format needed by your local LLM toolkit (Alpaca, LoRA, Hugging Face Transformers).
+- Use standard fine-tuning scripts provided by the frameworks.
 
 ---
 
@@ -113,6 +141,8 @@ Ammu's responses have contextual pauses to ensure natural Malayalam pronunciatio
 ## 🔗 Links & Resources
 - [OpenAI Fine-tuning Guide](https://platform.openai.com/docs/guides/fine-tuning)
 - [Home Assistant Voice Integration Guide](https://www.home-assistant.io/docs/voice/)
+- [DeepSeek Documentation](https://deepseek-ai.com)
+- [Ollama Documentation](https://ollama.ai)
 
 ---
 
