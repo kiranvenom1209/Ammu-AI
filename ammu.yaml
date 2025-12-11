@@ -10,6 +10,7 @@ esphome:
     microphone_id: mic # id of the microphone
     speaker_id: speaker # id of the speaker
     voice_assistant_id: ammu_va # id of the voice assistant
+    assist_pipeline: Ammu Malayalam # Home Assistant Assist pipeline name configured in Settings → Voice Assistants.
 
 # Use ESPHome packages for better organization.
 packages:
@@ -17,7 +18,7 @@ packages:
   sensors: !include packages/sensors.yaml
   voice_assistant: !include packages/voice_assistant.yaml
   audio: !include packages/audio.yaml
-  openai: !include packages/openai.yaml # Include OpenAI configuration.
+  # OpenAI and Assist pipeline are configured directly in Home Assistant 2024.12+; no ESPHome block is required here.
 
 # This section remains in the main file for any configurations
 # that don't fit neatly into the packages.  Currently empty,

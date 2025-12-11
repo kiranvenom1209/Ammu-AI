@@ -41,19 +41,30 @@ Welcome to **Ammu AI**, the revolutionary Malayalam AI assistant designed to red
 - [Install Home Assistant OS](https://www.home-assistant.io/installation/)
 - Update your Home Assistant to the latest version.
 
-### 2. Configure Cloud & Voice Pipelines
+### 2. Configure Cloud & Assist Pipelines (Home Assistant 2024.12+)
 - [Subscribe to Home Assistant Cloud (Nabu Casa)](https://www.nabucasa.com)
-- Set up the Ammu pipeline:
+- Create an Assist pipeline for Ammu:
   - Navigate to `Settings → Voice Assistants → Pipelines`
+  - Add a pipeline named **"Ammu Malayalam"** (matches `assist_pipeline` in `ammu.yaml`)
   - Language: Malayalam (ml-IN)
-  - Speech-to-Text: Home Assistant Cloud STT
-  - Text-to-Speech: SobhanaNeural TTS
+  - Speech-to-Text: Home Assistant Cloud STT (ml-IN)
+  - Text-to-Speech: Microsoft **SobhanaNeural** (ml-IN)
+  - Wake word: enabled via ESPHome voice assistant (no extra HA wake word needed)
+  - Set this pipeline as the default for the device or area
 
-### 3. Integrate OpenAI & LLM Vision
-- Install and configure [OpenAI Integration](https://www.home-assistant.io/integrations/openai_conversation/)
-  - Recommended model: GPT-4o-2024-11-20
-  - Max Tokens: 2400 | Top P: 0.9 | Temperature: 0.7
-- Install and configure [LLM Vision with OpenAI](https://www.home-assistant.io/integrations/openai_image_processing/)
+### 3. Integrate LLM Conversation (OpenAI or Google AI Studio) & Vision
+- **Option A: OpenAI Conversation** ([integration docs](https://www.home-assistant.io/integrations/openai_conversation/))
+  - Model: GPT-4o or GPT-4o-mini
+  - Parameters: Max Tokens 2400 | Top P 0.9 | Temperature 0.7
+  - Prompt: upload `ammu_baseprompt.txt`
+  - Functions/Tools: upload `ammu_functions.txt` to enable Home Assistant service calls
+- **Option B: Google AI Studio (Gemini)** ([Google Generative AI Conversation](https://www.home-assistant.io/integrations/google_generative_ai_conversation/))
+  - Create an API key in [Google AI Studio](https://aistudio.google.com/app/apikey) and set it in Home Assistant
+  - Model: `gemini-1.5-flash` for fastest responses or `gemini-1.5-pro` for higher quality
+  - Temperature: start around 0.7 and tune to preference
+  - Prompt: paste the contents of `ammu_baseprompt.txt`
+  - Tools: add `ammu_functions.txt` functions so Gemini can call Home Assistant services
+- **Vision (optional, OpenAI today)**: configure [LLM Vision with OpenAI](https://www.home-assistant.io/integrations/openai_image_processing/) for CCTV/object detection
 
 ### 4. Custom Wake Word
 - [Install OpenWakeWord](https://github.com/dscripka/openWakeWord/tree/main)
@@ -61,7 +72,8 @@ Welcome to **Ammu AI**, the revolutionary Malayalam AI assistant designed to red
 
 ### 5. Flash Custom Firmware
 - Download pre-built binary [`ammuaiencrypted.bin`](https://github.com/kiranvenom1209/ammuai/blob/main/flashable_code/ammuaiencrypted.bin)
-- Flash via [ESPHome](https://esphome.io/guides/getting_started_hassio.html)
+- When adding the device to Home Assistant, copy the generated **ESPHome API encryption key** into `packages/secrets.yaml`
+- Flash via [ESPHome](https://esphome.io/guides/getting_started_hassio.html) and set the Assist pipeline to "Ammu Malayalam"
 - OTA updates supported for easy maintenance
 
 ### 6. Activate Ammu AI
