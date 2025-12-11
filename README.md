@@ -136,6 +136,14 @@ Together, Kiran and Danny combine their diverse talents and shared passion for i
 
 Released under the [MIT License](LICENSE). Contributions and issue reports are welcomed via the [GitHub Repository](https://github.com/kiranvenom1209/ammuai).
 
+## 📤 Publishing your changes to GitHub
+This repository currently has no Git remotes configured. To publish updates on GitHub, add your remote and push the `work` branch:
+
+1. Verify whether a remote already exists: `git remote -v` (no output means none).
+2. Add your GitHub remote, for example: `git remote add origin git@github.com:<your-username>/Ammu-AI.git`.
+3. Push this branch: `git push -u origin work`.
+4. Open a pull request from the `work` branch in your GitHub repository.
+
 ---
 
 Dive into the innovative world of Ammu AI and experience intelligent, culturally-rich home automation like never before. Start your journey today! 🚀🌟
