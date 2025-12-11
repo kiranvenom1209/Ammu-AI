@@ -4,6 +4,7 @@ voice_assistant:
   id: ${voice_assistant_id}
   microphone: ${microphone_id}
   speaker: ${speaker_id}
+  pipeline: ${assist_pipeline}   # Matches the Assist pipeline name in Home Assistant 2024.12+.
   vad_threshold: 5             # Voice Activity Detection. Higher = less sensitive.
   noise_suppression_level: 2    # Adjust as needed for your environment.
   auto_gain: 16dBFS            # Adjust the auto gain.

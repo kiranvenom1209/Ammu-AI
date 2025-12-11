@@ -15,3 +15,8 @@ wifi:
   # Enable OTA updates.
   ota:
     password: !secret ota_password  # Set a strong OTA password in secrets.yaml!
+
+# Enable the Home Assistant API with encryption so the voice assistant can use the latest Assist pipeline.
+api:
+  encryption:
+    key: !secret api_encryption_key
