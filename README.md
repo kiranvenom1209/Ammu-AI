@@ -72,7 +72,7 @@ Welcome to **Ammu AI**, the revolutionary Malayalam AI assistant designed to red
 
 ### 5. Flash Custom Firmware
 - Download pre-built binary [`ammuaiencrypted.bin`](https://github.com/kiranvenom1209/ammuai/blob/main/flashable_code/ammuaiencrypted.bin)
-- When adding the device to Home Assistant, copy the generated **ESPHome API encryption key** into `packages/secrets.yaml`
+- When adding the device to Home Assistant, copy the generated **ESPHome API encryption key** into `secrets.yaml` in the ESPHome configuration root (or run ESPHome with `--secrets packages/secrets.yaml` if you prefer storing it under `packages/`)
 - Flash via [ESPHome](https://esphome.io/guides/getting_started_hassio.html) and set the Assist pipeline to "Ammu Malayalam"
 - OTA updates supported for easy maintenance
 
