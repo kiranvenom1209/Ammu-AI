@@ -1,6 +1,6 @@
 - spec:
     name: execute_services
-    description: Use this function to execute service of devices in Home Assistant.
+    description: Use this function to execute services of devices in Home Assistant.
     parameters:
       type: object
       properties:
@@ -21,21 +21,20 @@
                 properties:
                   entity_id:
                     type: string
-                    description: The entity_id retrieved from available devices. It
-                      must start with domain, followed by dot character.
+                    description: The entity_id retrieved from available devices. It must start with domain, followed by dot character.
                 required:
-                - entity_id
+                  - entity_id
             required:
-            - domain
-            - service
-            - service_data
+              - domain
+              - service
+              - service_data
   function:
     type: native
     name: execute_service
 
 - spec:
     name: describe_camera_feed
-    description: Get a description whats happening on security cameras around the house
+    description: Get a description of what is happening on security cameras around the house.
     parameters:
       type: object
       properties:
@@ -49,18 +48,18 @@
             type: string
             description: Entity id of the camera
       required:
-      - message
-      - entity_ids
+        - message
+        - entity_ids
   function:
     type: script
     sequence:
-    - service: llmvision.image_analyzer
-      data:
-        provider: 01JJ91RHKVDYMB0YZJGEABT28M  # Select in UI dropdown
-        max_tokens: 100
-        temperature: 0.3
-        image_entity: "{{entity_ids}}"
-        model: gpt-4o
-        include_filename: false
-        message: "{{message}}"
-      response_variable: _function_result
+      - service: llmvision.image_analyzer
+        data:
+          provider: 01JJ91RHKVDYMB0YZJGEABT28M  # Select in UI dropdown
+          max_tokens: 100
+          temperature: 0.3
+          image_entity: "{{entity_ids}}"
+          model: gpt-4o
+          include_filename: false
+          message: "{{message}}"
+        response_variable: _function_result

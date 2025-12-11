@@ -1,0 +1,13 @@
+# Local secrets and environment files
+packages/secrets.yaml
+secrets.yaml
+.env
+
+# Build artifacts
+*.bin
+*.log
+*.tmp
+
+# Python cache
+__pycache__/
+*.pyc

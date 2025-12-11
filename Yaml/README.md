@@ -1,110 +1,64 @@
 # Ammu AI Editable YAML Configuration
 
-Welcome to the Ammu AI YAML configuration repository! This file contains the full, editable ESPHome YAML configuration for Ammu AI – our custom voice assistant firmware designed for the ESP32-S3 platform. Customize it to your heart’s content, then compile and flash it to your device or update it over the air!
-
----
+This folder holds the full ESPHome YAML configuration for Ammu AI on the ESP32‑S3 platform. Customize it, compile with ESPHome, and flash it to your device or update it over the air. The config targets **Home Assistant 2024.12+ Assist pipelines** and expects an encrypted ESPHome API connection.
 
 ## Overview
 
-Ammu AI combines state-of-the-art streaming wake word detection, dynamic LED feedback, dual-microphone support, and secure API connectivity to create an engaging and interactive voice assistant experience. This configuration file lets you tailor every aspect of the firmware—from network settings and audio pipelines to LED animations and voice assistant behavior.
+Ammu AI combines streaming wake-word detection, dynamic LED feedback, dual-microphone support, and secure API connectivity. Every aspect—from network settings to LED animations—is customizable in the YAML.
 
----
+## Key features
 
-## Key Features
+- **Fully editable YAML**: Adjust LED animations, voice assistant phases, and audio pipelines.
+- **Streaming wake-word detection**: Always listening for activation without sacrificing performance (pipeline selection handled in HA).
+- **Dynamic LED visuals**: Animations that reflect idle, listening, thinking, replying, or error states.
+- **Dual-microphone support**: Separate channels for wake-word detection and speech recognition.
+- **Secure API & OTA updates**: Home Assistant integration with OTA firmware updates.
+- **Customizable audio assets**: Swap default sounds with your own recordings.
 
-- **Fully Editable YAML:**  
-  Customize settings such as LED animations, voice assistant phases, and audio pipelines easily.
+## Hardware requirements
 
-- **Streaming Wake Word Detection:**  
-  Continuously listens for a wake word to activate the voice assistant without sacrificing performance.
-
-- **Dynamic LED Visuals:**  
-  Enjoy creative LED animations that reflect the device’s state—idle, listening, thinking, replying, or in error.
-
-- **Dual-Microphone Support:**  
-  Uses separate channels for wake word detection and speech recognition, ensuring clear command processing.
-
-- **Secure API & OTA Updates:**  
-  Seamless integration with Home Assistant via a secure API, plus over‑the‑air firmware updates for hassle‑free maintenance.
-
-- **Customizable Audio Assets:**  
-  Easily swap out default sounds with your own custom recordings to personalize your device.
-
----
-
-## Hardware Requirements
-
-- **ESP32-S3 Board** (e.g., ESP32-S3-DevKitC-1)  
-- **LED Ring** (e.g., WS2812 with 12 LEDs)  
-- **Dual-Microphone Module** (such as nabu_microphone for separate ASR and wake word channels)  
-- **Speaker & Amplifier**  
-- Other peripherals: I2C, PSRAM, I2S, etc.
-
----
+- ESP32‑S3 board (e.g., ESP32-S3-DevKitC-1)
+- LED ring (e.g., WS2812 with 12 LEDs)
+- Dual‑microphone module (e.g., nabu_microphone)
+- Speaker and amplifier
+- Supporting peripherals (I2C, PSRAM, I2S, etc.)
 
 ## Installation
 
-### 1. Clone the Repository
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/kiranvenom1209/ammuai.git
+   cd ammuai/Yaml
+   ```
+2. **Edit the YAML file**
+   Open the YAML in your editor and adjust network settings, hardware pins, and assistant behavior.
+3. **Compile and flash**
+   ```bash
+   esphome run your_configuration.yaml
+   ```
+   Replace `your_configuration.yaml` with the actual filename.
+4. **Pair with Home Assistant Assist**
+   - Add the device to Home Assistant and paste the generated ESPHome API encryption key into `packages/secrets.yaml`.
+   - Ensure the Assist pipeline named "Ammu Malayalam" is set as default or mapped to the device in `Settings → Voice Assistants → Pipelines`.
+5. **OTA updates**
+   After the device is on Wi‑Fi, use the ESPHome dashboard for over‑the‑air updates.
 
-Clone this repository and navigate to the `Yaml` folder:
+## Customization tips
 
-```bash
-git clone https://github.com/kiranvenom1209/ammuai.git
-cd ammuai/Yaml
-2. Edit the YAML File
-Open the YAML file in your favorite editor (VSCode, Sublime Text, etc.) and adjust the configuration to suit your network and hardware setup. You can modify:
+- **Custom audio files**: Host your FLAC wake word audio and update the sound URL in the configuration.
+- **Tuning LED effects**: Modify the lambda effects under the `light` component for different colors, speeds, and patterns.
+- **Voice assistant settings**: Adjust `noise_suppression_level`, `auto_gain`, and `volume_multiplier` under `voice_assistant` for your environment.
 
-Wi‑Fi Credentials (via secrets)
-LED Animations and timings
-Voice Assistant Settings (microphone channels, wake word models, etc.)
-Custom Sound URLs (e.g., replace the default wake word sound)
-3. Compile and Flash
-Use ESPHome to validate and compile your configuration. Then flash the firmware to your device using USB for the first time:
+## Troubleshooting
 
-bash
-Copy
-esphome run your_configuration.yaml
-Replace your_configuration.yaml with the actual filename if it differs.
+- **Device not showing up**: Verify Wi‑Fi connectivity, ensure mDNS is allowed, or add the device by IP in ESPHome.
+- **Compilation errors**: Run ESPHome validation and check YAML indentation and lambdas.
+- **Audio/LED issues**: Inspect ESPHome logs and wiring.
 
-4. OTA Updates
-Once the device is connected to your Wi‑Fi, you can perform OTA updates directly from the ESPHome dashboard—no USB required!
+## Contributing
 
-Customization Tips
-Custom Audio Files
-If you’ve generated a new custom wake word file, convert it to FLAC (if necessary) and host it (e.g., in your repository). Then update the sound file URL in the configuration:
+Contributions and feature suggestions are welcome. Open an issue or submit a pull request on GitHub.
 
-yaml
-Copy
-- id: wake_word_triggered_sound
-  file: https://github.com/kiranvenom1209/ammuai/raw/main/flashable_code/your_custom_sound.flac
-Tuning LED Effects
-The configuration uses a variety of lambda functions under the light: component to create dynamic LED effects. Feel free to modify these lambdas to experiment with different colors, speeds, and patterns.
+## License
 
-Voice Assistant Settings
-Adjust parameters like noise_suppression_level, auto_gain, and volume_multiplier under the voice_assistant block to optimize speech recognition and audio output based on your environment.
-
-Troubleshooting
-Device Not Showing Up:
-• Verify your device’s Wi‑Fi connectivity (check your router’s DHCP list).
-• Ensure mDNS is not blocked on your network.
-• Manually add the device by its IP address via the ESPHome dashboard if needed.
-
-Compilation Errors:
-• Use the ESPHome validation tool to check for YAML syntax errors.
-• Double-check indentation and lambda function formatting.
-
-Audio/LED Issues:
-• Review ESPHome logs for error messages.
-• Confirm that all wiring and component connections are secure and correct.
-
-Contributing
-Contributions, improvements, and feature suggestions are welcome! Please open an issue or submit a pull request on GitHub.
-
-License
-This project is licensed under the MIT License. See the LICENSE file for more details.
-
-Enjoy customizing and deploying Ammu AI – where cutting-edge voice assistant technology meets creative home automation!
-
-yaml
-Copy
-
+This project is licensed under the MIT License. See the [LICENSE](../LICENSE) file for details.
